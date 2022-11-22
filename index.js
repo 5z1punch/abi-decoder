@@ -11,8 +11,8 @@ function _getABIs() {
 }
 
 function _typeToString(input) {
-  if (input.type === "tuple") {
-    return "(" + input.components.map(_typeToString).join(",") + ")";
+  if (input.type.startsWith("tuple")) {
+    return "(" + input.components.map(_typeToString).join(",") + ")" + input.type.slice(5);
   }
   return input.type;
 }
